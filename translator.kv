@@ -1,0 +1,197 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+    ThirdWindow:
+    FourthWindow:
+
+<MainWindow>:
+    name:"main"
+    GridLayout:
+        cols:1
+        Button:
+            on_release:
+                app.root.current="second"
+                root.manager.transition.direction="left"
+            Image:
+                source:'Vocably.png'
+                fit_mode:"fill"
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+                size:800,700
+        
+
+<SecondWindow>:
+    name:'second'
+    canvas.before:
+        Color:
+            rgba:0,0,0,0
+    Button:
+        text: "Translate"
+        font_size:20
+        pos_hint:{"center_x":0.5,"center_y":0.65}
+        size_hint:.4,.1
+        background_color:6/255,141/255,105/255,1
+        background_normal:''
+        on_release:
+            app.root.current='third'
+            root.manager.transition.direction="left"
+    Button:
+        text: "Detect"
+        font_size:20
+        pos_hint:{"center_x":0.5,"center_y":0.4}
+        size_hint:.4,.1
+        background_color:6/255,141/255,105/255,1
+        background_normal:''
+        on_release:
+            app.root.current='Fourth'
+            root.manager.transition.direction="left"
+
+<ThirdWindow>
+    name:'third'
+    t1:t1
+    t2:t2
+    t5:t5
+    t6:t6
+    spin1:spin1
+    spin2:spin2
+
+    TextInput:
+        id:t5
+        hint_text:"Select"
+        pos_hint:{"center_x":0.3,"center_y":0.92}
+        size_hint:0.4,0.058
+    
+    Spinner:
+        id: spin1            
+        size_hint:0.08,0.05
+        dropdown_cls:"MyDrop"
+        sync_height:True
+        font_size:dp(5)
+        pos_hint:{"center_x":0.54,"center_y":0.92}                
+        text:"..."
+        values:['Afrikaans', 'Albanian', 'Azerbaijani', 'Basque', 'Belarusian', 'Bosnian', 'Bulgarian', 'Catalan', 'Cebuano', 'Chichewa', 'Corsican', 'Croatian', 'Czech', 'Danish', 'Dutch', 'English', 'Esperanto', 'Estonian', 'Filipino', 'Finnish', 'French', 'Frisian', 'Galician', 'German', 'Greek', 'Haitian Creole', 'Hausa', 'Hawaiian', 'Hindi', 'Hmong', 'Hungarian', 'Icelandic', 'Igbo', 'Indonesian', 'Irish', 'Italian', 'Javanese', 'Kazakh', 'Kyrgyz', 'Latin', 'Latvian', 'Lithuanian', 'Luxembourgish', 'Macedonian', 'Malagasy', 'Malay', 'Maltese', 'Maori', 'Marathi', 'Mongolian', 'Nepali', 'Norwegian', 'Polish', 'Portuguese', 'Romanian', 'Russian', 'Samoan', 'Scots Gaelic', 'Serbian', 'Sesotho', 'Shona', 'Slovak', 'Slovenian', 'Somali', 'Spanish', 'Sundanese', 'Swahili', 'Swedish', 'Tajik', 'Turkish', 'Ukrainian', 'Uzbek', 'Vietnamese', 'Welsh', 'Xhosa', 'Yoruba', 'Zulu']
+        on_text: root.btn4(spin1.text)
+
+    TextInput:
+        id:t1
+        hint_text:"Enter text to translate"
+        font_name:"Noto Sans"
+        pos_hint:{"center_x":0.5,"center_y":0.788}
+        size_hint:0.8,0.2
+
+    Button:
+        pos_hint:{"center_x":0.86,"center_y":0.92}
+        size_hint:0.087,0.057
+        on_release:
+            root.btn1()
+        Image:
+            source:'speak.jpg'
+            center_x:self.parent.center_x
+            center_y:self.parent.center_y
+            size:22,22
+
+    TextInput:
+        id:t6
+        hint_text:"Select"
+        pos_hint:{"center_x":0.3,"center_y":0.589}
+        size_hint:0.4,0.058
+
+    Spinner:
+        id: spin2           
+        size_hint:0.08,0.05
+        dropdown_cls:"MyDrop"
+        sync_height:True
+        font_size:dp(5)
+        pos_hint:{"center_x":0.54,"center_y":0.589}                
+        text:"..."
+        values:['Afrikaans', 'Albanian', 'Azerbaijani', 'Basque', 'Belarusian', 'Bosnian', 'Bulgarian', 'Catalan', 'Cebuano', 'Chichewa', 'Corsican', 'Croatian', 'Czech', 'Danish', 'Dutch', 'English', 'Esperanto', 'Estonian', 'Filipino', 'Finnish', 'French', 'Frisian', 'Galician', 'German', 'Greek', 'Haitian Creole', 'Hausa', 'Hawaiian', 'Hindi', 'Hmong', 'Hungarian', 'Icelandic', 'Igbo', 'Indonesian', 'Irish', 'Italian', 'Javanese', 'Kazakh', 'Kyrgyz', 'Latin', 'Latvian', 'Lithuanian', 'Luxembourgish', 'Macedonian', 'Malagasy', 'Malay', 'Maltese', 'Maori', 'Marathi', 'Mongolian', 'Nepali', 'Norwegian', 'Polish', 'Portuguese', 'Romanian', 'Russian', 'Samoan', 'Scots Gaelic', 'Serbian', 'Sesotho', 'Shona', 'Slovak', 'Slovenian', 'Somali', 'Spanish', 'Sundanese', 'Swahili', 'Swedish', 'Tajik', 'Turkish', 'Ukrainian', 'Uzbek', 'Vietnamese', 'Welsh', 'Xhosa', 'Yoruba', 'Zulu']
+        on_text: root.btn5(spin2.text)
+
+    TextInput:
+        id:t2
+        hint_text:"Translated text"
+        font_name:"Noto Sans" 
+        pos_hint:{"center_x":0.5,"center_y":0.458}
+        size_hint:0.8,0.2
+
+    Button:
+        size_hint:0.087,0.057
+        pos_hint:{"center_x":0.86,"center_y":0.589}
+        on_press: root.btn2()
+        Image:
+            source:'speak.jpg'
+            center_x:self.parent.center_x
+            center_y:self.parent.center_y
+            size:22,22
+
+    Button:
+        text: "Translate"
+        pos_hint:{"center_x":0.5,"center_y":0.2}
+        size_hint:.4,.08
+        on_press: root.btn3()
+
+    Button:
+        text:"Back"
+        pos_hint:{"center_x":0.5,"center_y":0.1}
+        size_hint:.4,.08
+        on_release:
+            app.root.current='second'
+            root.manager.transition.direction="right"
+    
+<FourthWindow>:
+    name:'Fourth'
+    t3:t3
+    t4:t4
+    canvas.before:
+        Color:
+            rgba:6/255,141/255,105/255,1
+
+    TextInput:
+        id:t3
+        hint_text:"Enter text to translate"
+        pos_hint:{"center_x":0.5,"center_y":0.8}
+        size_hint:0.8,0.2
+
+    Button:
+        text: "Detect"
+        pos_hint:{"center_x":0.5,"center_y":0.65}
+        size_hint:.4,.08
+        on_press: root.btn4()
+
+    TextInput:
+        id:t4
+        hint_text:"Language"
+        pos_hint:{"center_x":0.5,"center_y":0.57}
+        size_hint:0.8,0.06
+
+    Label:
+        text:"OR"
+        pos_hint:{"center_x":0.5,"center_y":0.5}
+
+    Button:
+        size_hint:0.1,0.1
+        pos_hint:{"x":0.45,"y":0.3}
+        on_press: root.btn5()
+        Image:
+            source:'mic.jpg'
+            center_x:self.parent.center_x
+            center_y:self.parent.center_y
+            size:70,70
+    
+    Button:
+        text:"Back"
+        pos_hint:{"center_x":0.5,"center_y":0.1}
+        size_hint:.4,.08
+        on_release:
+            app.root.current='second'
+            root.manager.transition.direction="right"
+
+<MyDrop@DropDown>
+    max_height:200
+    height:5
+    width:100
+    auto_height:False
+    auto_width:False
+    
+    
+
