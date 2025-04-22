@@ -1,3 +1,16 @@
 **Translator App using Kivy in Python**
 <br>
-This is the apk I tried using Kivy.It ia a basic app. Everything was running good but I got some problem while deployment of the app. There were some wheels which were not getting installed and also some libraries.
+A simple translator app built using Python, Kivy, googletrans, and gTTS. It allows users to translate text between languages and hear the spoken result.
+<br>
+<h1>Features<h1>
+-Translate text using Google Translate (googletrans)
+
+-Text-to-speech using gTTS
+
+-Built with Kivy for cross-platform GUI
+
+-Target: Android & Desktop
+
+<br>
+This app may face deployment problems, especially when building for Android or running in certain Linux environments.
+Some required Python wheels fail to install properly, like googletrans or dependencies like httpx, httpcore.

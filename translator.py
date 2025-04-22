@@ -18,7 +18,7 @@ import httpx
 import time
 #import playsound
 #import speech_recognition as sr
-import pyaudio
+# import pyaudio
 
 trans=Translator()
 
