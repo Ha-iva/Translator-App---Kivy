@@ -16,9 +16,9 @@ import os
 import httpcore
 import httpx
 import time
-#import playsound
-#import speech_recognition as sr
-# import pyaudio
+import playsound
+import speech_recognition as sr
+import pyaudio
 
 trans=Translator()
 
@@ -64,7 +64,7 @@ class ThirdWindow(Screen):
         tts = gTTS(text)
         filename='voice.mp3'
         tts.save(filename)
-        #playsound.playsound(filename)
+        playsound.playsound(filename)
         os.remove(filename)     
         
     def translate_to(self,text,sou,des):
@@ -87,7 +87,7 @@ class FourthWindow(Screen):
     def btn5(self):
         self.get_audio()
     def get_audio(self):
-        '''r=sr.Recognizer()
+        r=sr.Recognizer()
         with sr.Microphone() as source:
             audio=r.listen(source)
             
@@ -97,7 +97,7 @@ class FourthWindow(Screen):
                 send2.text=a_t
                 self.detect_lang(a_t)
             except Exception as e:
-                print("Exception : "+str(e))'''
+                print("Exception : "+str(e))
 
 class WindowManager(ScreenManager):
     pass
